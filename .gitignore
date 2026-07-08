@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,visualstudiocode,aspnetcore
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore,react
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,visualstudiocode,aspnetcore,react
 
 ### ASPNETCore ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -271,6 +271,21 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
+### react ###
+.DS_*
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -539,4 +554,4 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore
+# End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore,react

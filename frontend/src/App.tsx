@@ -1,9 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignInPage from "./pages/SignInPage";
-import { isLoggedIn } from "./utils/session";
+import { useSyncExternalStore } from "react";
+import { getSnapshot, subscribe } from "./utils/session";
 
 function App() {
-    const authenticated = isLoggedIn();
+    const authenticated = useSyncExternalStore(
+        subscribe,
+        getSnapshot
+    );
     
     return (
         <BrowserRouter>

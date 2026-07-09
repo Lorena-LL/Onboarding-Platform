@@ -1,0 +1,63 @@
+.sign-in {
+    width: 100%;
+    max-width: 380px;
+}
+
+.sign-in__title {
+    font-weight: 700 !important;
+    color: #0f172a;
+    margin-bottom: 4px !important;
+}
+
+.sign-in__subtitle {
+    color: #334155;
+    margin-bottom: 32px !important;
+}
+
+.sign-in__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sign-in__field {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in__label {
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.sign-in__input .MuiOutlinedInput-root {
+    border-radius: 8px;
+}
+
+.sign-in__input .MuiOutlinedInput-notchedOutline {
+    border-color: #cbd5e1;
+}
+
+.sign-in__error {
+    color: #dc2626 !important;
+}
+
+.sign-in__submit {
+    background-color: #1e3a5f !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    padding: 12px 0 !important;
+    border-radius: 8px !important;
+    margin-top: 8px !important;
+}
+
+.sign-in__submit:hover {
+    background-color: #16304d !important;
+}
+
+.sign-in__footer {
+    margin-top: 24px !important;
+    text-align: center;
+    color: #64748b;
+}

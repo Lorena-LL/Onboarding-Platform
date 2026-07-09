@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import SignIn from "../components/SignIn/SignIn";
 import { setToken } from "../utils/session";
-import { SIGN_IN_PAGE } from "../constants/messages";
+import { COMPANY, SIGN_IN_PAGE } from "../constants/messages";
 import type { AuthResponseDto } from "../models/auth.types";
 import "./SignInPage.css";
 import { Typography } from "@mui/material";
@@ -18,7 +18,7 @@ const SignInPage: React.FC = () => {
         <div className="sign-in-page">
             <div className="sign-in-page__brand">
                 <Typography variant="body1" className="sign-in-page__logo">
-                    {SIGN_IN_PAGE.brand}
+                    {COMPANY.name}
                 </Typography>
                 <Typography variant="h2" className="sign-in-page__heading">
                     {SIGN_IN_PAGE.heading}

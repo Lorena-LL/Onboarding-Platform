@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignInPage from "./pages/SignInPage";
 import { useSyncExternalStore } from "react";
 import { getSnapshot, subscribe } from "./utils/session";
+import Header from "./components/Header/Header";
 
 function App() {
     const authenticated = useSyncExternalStore(
@@ -18,7 +19,7 @@ function App() {
                 />
                 <Route
                     path="/home"
-                    element={authenticated ? <div> Home Page </div> : <Navigate to="/" replace />}
+                    element={authenticated ? <Header /> : <Navigate to="/" replace />}
                 />
             </Routes>
         </BrowserRouter>

@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    background-color: #1e3a5f;
+}
+
+.header__brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.header__company {
+    font-size: 12px !important;
+    color: #cbd5e1;
+}
+
+.header__product {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff;
+}
+
+.header__profile {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+}

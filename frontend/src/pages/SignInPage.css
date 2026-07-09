@@ -1,0 +1,40 @@
+.sign-in-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sign-in-page__brand {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 80px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d6a6a 100%);
+    color: #ffffff;
+}
+
+.sign-in-page__logo {
+    text-transform: uppercase;
+    color: #dbe4ea;
+}
+
+.sign-in-page__heading {
+    max-width: 40vw;
+    margin: 6px 0 24px 0 !important;
+}
+
+.sign-in-page__description {
+    max-width: 36vw;
+    color: #dbe4ea;
+}
+
+.sign-in-page__panel {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px;
+    margin-left: -48px;
+    background: #ffffff;
+    border-radius: 48px 0 0 48px;
+}

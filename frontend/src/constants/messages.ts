@@ -11,3 +11,9 @@ export const CREDENTIALS = {
     password: "Password",
     placeholderPassword: "********"
 }
+
+export const SIGN_IN_PAGE = {
+    brand: "Meridian",
+    heading: "Welcome to your first days with us!",
+    description: "We will help you have the best onboarding experience. Please sign in to get familiar with with our company and your new role."
+}

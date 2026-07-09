@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignInPage from "./pages/SignInPage";
 import { useSyncExternalStore } from "react";
 import { getSnapshot, subscribe } from "./utils/session";
-import Header from "./components/Header/Header";
+import PageLayout from "./components/PageLayout/PageLayout";
 
 function App() {
     const authenticated = useSyncExternalStore(
@@ -19,7 +19,7 @@ function App() {
                 />
                 <Route
                     path="/home"
-                    element={authenticated ? <Header /> : <Navigate to="/" replace />}
+                    element={authenticated ? <PageLayout>Home Content</PageLayout> : <Navigate to="/" replace />}
                 />
             </Routes>
         </BrowserRouter>

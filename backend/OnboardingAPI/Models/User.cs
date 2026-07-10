@@ -16,5 +16,7 @@ namespace OnboardingAPI.Models
         public Profile? Profile { get; set; }
 
         public ICollection<Team> LedTeams { get; set; } = new List<Team>();
+
+        public ICollection<TeamMember> TeamMemberships { get; set; } = new List<TeamMember>();
     }
 }

@@ -1,4 +1,7 @@
 namespace OnboardingAPI.DTOs
 {
-    public record RegisterDTO(string Email = "", string Password = "");
+    public record RegisterDTO(
+        string Email = "", 
+        string Password = ""
+    );
 }

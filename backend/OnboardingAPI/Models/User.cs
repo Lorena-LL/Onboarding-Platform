@@ -12,5 +12,7 @@ namespace OnboardingAPI.Models
 
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
+
+        public Profile? Profile { get; set; }
     }
 }

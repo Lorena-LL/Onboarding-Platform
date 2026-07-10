@@ -1,6 +1,6 @@
 using OnboardingAPI.DTOs;
 
-namespace OnboardingAPI.Services
+namespace OnboardingAPI.Services.Interfaces
 {
     public interface IAuthService
     {

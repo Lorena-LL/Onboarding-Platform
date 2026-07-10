@@ -10,6 +10,8 @@ namespace OnboardingAPI.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Profile> Profiles { get; set; }
 
+        public DbSet<Team> Teams { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
@@ -24,6 +26,12 @@ namespace OnboardingAPI.Data
             modelBuilder.Entity<Profile>()
                 .Property(p => p.Role)
                 .HasConversion<string>();
+
+            modelBuilder.Entity<Team>()
+               .HasOne(t => t.LeadUser)
+               .WithMany(u => u.LedTeams)
+               .HasForeignKey(t => t.LeadUserId)
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

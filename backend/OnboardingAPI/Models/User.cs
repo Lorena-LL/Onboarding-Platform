@@ -14,5 +14,7 @@ namespace OnboardingAPI.Models
         public string PasswordHash { get; set; } = string.Empty;
 
         public Profile? Profile { get; set; }
+
+        public ICollection<Team> LedTeams { get; set; } = new List<Team>();
     }
 }

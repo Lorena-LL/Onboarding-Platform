@@ -7,21 +7,22 @@ namespace OnboardingAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProfileController : ControllerBase
+    public class TeamMemberController : ControllerBase
     {
-        private readonly IProfileService _profileService;
+        private readonly ITeamMemberService _teamMemberService;
 
-        public ProfileController(IProfileService profileService)
+        public TeamMemberController(ITeamMemberService teamMemberService)
         {
-            _profileService = profileService;
+            _teamMemberService = teamMemberService;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateProfileDTO dto)
+        public async Task<IActionResult> Create(CreateTeamMemberDTO dto)
         {
-            ProfileAllInfoResponseDTO? result = await _profileService.CreateAsync(dto);
+            TeamMemberResponseDTO? result = await _teamMemberService.CreateAsync(dto);
+
             if (result == null)
-                return BadRequest(ErrorMessages.UserAlreadyExistsOrHasProfile);
+                return BadRequest(ErrorMessages.UserOrTeamDoesNotExistOrUserPartOfTeam);
 
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
@@ -29,16 +30,19 @@ namespace OnboardingAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            ProfileAllInfoResponseDTO? result = await _profileService.GetByIdAsync(id);
+            TeamMemberResponseDTO? result = await _teamMemberService.GetByIdAsync(id);
+
             if (result == null)
                 return NotFound();
+
             return Ok(result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, UpdateProfileDTO dto)
+        public async Task<IActionResult> Update(Guid id, UpdateTeamMemberDTO dto)
         {
-            ProfileAllInfoResponseDTO? result = await _profileService.UpdateAsync(id, dto);
+            TeamMemberResponseDTO? result = await _teamMemberService.UpdateAsync(id, dto);
+
             if (result == null)
                 return NotFound();
 
@@ -48,7 +52,8 @@ namespace OnboardingAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            bool deleted = await _profileService.DeleteAsync(id);
+            bool deleted = await _teamMemberService.DeleteAsync(id);
+
             if (!deleted)
                 return NotFound();
 

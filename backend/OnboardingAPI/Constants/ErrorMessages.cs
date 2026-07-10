@@ -6,5 +6,9 @@
         public const string EmailOrPasswordIncorrect = "Email or password is incorrect.";
 
         public const string UserAlreadyExistsOrHasProfile = "User does not exist or already has a profile.";
+
+        public const string LeadAssignedDoesNotExist = "Lead assigned to the team does not exist.";
+
+        public const string UserOrTeamDoesNotExistOrUserPartOfTeam = "User or team doesn't exist, or the user is already part of the team.";
     }
 }

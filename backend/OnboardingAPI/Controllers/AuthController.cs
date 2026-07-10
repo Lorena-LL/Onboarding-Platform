@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnboardingAPI.Constants;
 using OnboardingAPI.DTOs;
-using OnboardingAPI.Services;
+using OnboardingAPI.Services.Interfaces;
 
 namespace OnboardingAPI.Controllers
 {

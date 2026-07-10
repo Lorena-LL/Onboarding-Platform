@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnboardingAPI.Data;
 
@@ -10,9 +11,11 @@ using OnboardingAPI.Data;
 namespace OnboardingAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260710171922_AddTeamTable")]
+    partial class AddTeamTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
@@ -65,31 +68,6 @@ namespace OnboardingAPI.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("OnboardingAPI.Models.TeamMember", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DateJoined")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("TeamId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("TeamId", "UserId")
-                        .IsUnique();
-
-                    b.ToTable("TeamMembers");
-                });
-
             modelBuilder.Entity("OnboardingAPI.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -134,37 +112,11 @@ namespace OnboardingAPI.Migrations
                     b.Navigation("LeadUser");
                 });
 
-            modelBuilder.Entity("OnboardingAPI.Models.TeamMember", b =>
-                {
-                    b.HasOne("OnboardingAPI.Models.Team", "Team")
-                        .WithMany("TeamMembers")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OnboardingAPI.Models.User", "User")
-                        .WithMany("TeamMemberships")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Team");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("OnboardingAPI.Models.Team", b =>
-                {
-                    b.Navigation("TeamMembers");
-                });
-
             modelBuilder.Entity("OnboardingAPI.Models.User", b =>
                 {
                     b.Navigation("LedTeams");
 
                     b.Navigation("Profile");
-
-                    b.Navigation("TeamMemberships");
                 });
 #pragma warning restore 612, 618
         }

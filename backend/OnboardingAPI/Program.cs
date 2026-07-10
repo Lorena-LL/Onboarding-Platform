@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using OnboardingAPI.Data;
 using OnboardingAPI.Services;
+using OnboardingAPI.Services.Interfaces;
 
 DotNetEnv.Env.Load();
 
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<AppDbContext>(
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
+builder.Services.AddScoped<ITeamService, TeamService>();
+builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 
 string jwtKey = builder.Configuration["Jwt:Key"]!;
 builder.Services.AddAuthentication(options =>

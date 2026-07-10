@@ -11,7 +11,7 @@ import { GENERAL_ERROR, SIGN_IN_ERROR } from "../../constants/errors";
 import { CREDENTIALS, SIGN_IN } from "../../constants/messages";
 import "./SignIn.css";
 
-const SignIn: React.FC<SignInProps> = ({ onSignInSuccess }) => {
+const SignIn: React.FC<SignInProps> = ({ onSignInSuccess }: SignInProps) => {
     const [formState, setFormState] = useState<SignInFormState>({
         email: EMPTY_STRING,
         password: EMPTY_STRING,

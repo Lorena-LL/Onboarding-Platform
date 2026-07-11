@@ -6,5 +6,5 @@ export const USER_ID_KEY = "meridian_user_id";
 export const ROUTES = {
     signIn: "/",
     home: "/home",
-    profile: "/profile",
+    profile: "/profile"
 };

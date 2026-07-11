@@ -35,9 +35,18 @@ export const PROFILE_CARD = {
 
 export const SIDE_PANEL = {
     navigation: "Navigation",
-    personalDetails: "Personal Details",
+    personalDetails: "Personal Details"
 }
 
 export const PROFILE_PAGE = {
     title: "Personal Details"
+}
+
+export const LEAD_CARD = {
+    title: "Leads",
+    leads: "Leads"
+}
+
+export const TEAM_CARD = {
+    title: "Team"
 }

@@ -1,8 +1,8 @@
 .page-layout__body {
   display: flex;
+  background-color: #f4f6f9;
 }
 
 .page-layout__content {
   flex: 1;
-  padding: 32px;
 }

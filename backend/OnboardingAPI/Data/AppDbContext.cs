@@ -12,6 +12,7 @@ namespace OnboardingAPI.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<OnboardingTask> OnboardingTasks { get; set; }
+        public DbSet<AssignedOnboardingTask> AssignedOnboardingTasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,6 +54,22 @@ namespace OnboardingAPI.Data
             modelBuilder.Entity<OnboardingTask>()
                 .Property(p => p.Category)
                 .HasConversion<string>();
+
+            modelBuilder.Entity<AssignedOnboardingTask>()
+                .HasOne(a => a.Task)
+                .WithMany()
+                .HasForeignKey(a => a.TaskId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AssignedOnboardingTask>()
+                .HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AssignedOnboardingTask>()
+                .HasIndex(a => new { a.TaskId, a.UserId })
+                .IsUnique();
         }
     }
 }

@@ -25,3 +25,19 @@ export const SIGN_IN_PAGE = {
 export const HEADER = {
     profile: "My Profile"
 }
+
+export const PROFILE_CARD = {
+    joined: "Joined",
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Email"
+}
+
+export const SIDE_PANEL = {
+    navigation: "Navigation",
+    personalDetails: "Personal Details",
+}
+
+export const PROFILE_PAGE = {
+    title: "Personal Details"
+}

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace OnboardingAPI.Models.Enums
 {
-    [JsonConverter(typeof(RoleJsonConverter))]
+    [JsonConverter(typeof(SpaceSeparatedEnumConverter<Role>))]
     public enum Role
     {
         SoftwareEngineer,

@@ -1,13 +1,12 @@
-﻿using OnboardingAPI.Models.Enums;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace OnboardingAPI.Models.Converters
 {
-    public class RoleJsonConverter : JsonConverter<Role>
+    public class SpaceSeparatedEnumConverter<T> : JsonConverter<T> where T : struct, Enum
     {
-        public override Role Read(
+        public override T Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options)
@@ -15,27 +14,27 @@ namespace OnboardingAPI.Models.Converters
             string? value = reader.GetString();
 
             if (string.IsNullOrWhiteSpace(value))
-                throw new JsonException("Role value cannot be empty.");
+                throw new JsonException($"{typeof(T).Name} value cannot be empty.");
 
             string normalized = value.Replace(" ", "")
-                                      .Replace("-", "")
-                                      .Replace("_", "");
+                                     .Replace("-", "")
+                                     .Replace("_", "");
 
-            foreach (Role role in Enum.GetValues<Role>())
+            foreach (T enumValue in Enum.GetValues<T>())
             {
-                if (string.Equals(role.ToString(), normalized, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(enumValue.ToString(), normalized, StringComparison.OrdinalIgnoreCase))
                 {
-                    return role;
+                    return enumValue;
                 }
             }
 
             throw new JsonException(
-                $"Invalid role value: '{value}'. Valid values: {string.Join(", ", Enum.GetNames<Role>())}");
+                $"Invalid {typeof(T).Name} value: '{value}'. Valid values: {string.Join(", ", Enum.GetNames<T>())}");
         }
 
         public override void Write(
             Utf8JsonWriter writer,
-            Role value,
+            T value,
             JsonSerializerOptions options)
         {
             writer.WriteStringValue(InsertSpacesBeforeCapitals(value.ToString()));

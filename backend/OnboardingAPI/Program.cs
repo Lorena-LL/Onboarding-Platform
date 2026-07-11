@@ -18,6 +18,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<ITeamService, TeamService>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
+builder.Services.AddScoped<IOnboardingTaskService, OnboardingTaskService>();
 
 string jwtKey = builder.Configuration["Jwt:Key"]!;
 builder.Services.AddAuthentication(options =>

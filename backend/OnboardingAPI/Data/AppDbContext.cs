@@ -11,6 +11,7 @@ namespace OnboardingAPI.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<OnboardingTask> OnboardingTasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,6 +49,10 @@ namespace OnboardingAPI.Data
             modelBuilder.Entity<TeamMember>()
                 .HasIndex(tm => new { tm.TeamId, tm.UserId })
                 .IsUnique();
+
+            modelBuilder.Entity<OnboardingTask>()
+                .Property(p => p.Category)
+                .HasConversion<string>();
         }
     }
 }

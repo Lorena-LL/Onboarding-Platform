@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import SignIn from "../components/SignIn/SignIn";
-import { setToken } from "../utils/session";
-import { COMPANY, SIGN_IN_PAGE } from "../constants/messages";
-import type { AuthResponseDto } from "../models/auth.types";
+import SignIn from "../../components/SignIn/SignIn";
+import { setToken } from "../../utils/session";
+import { COMPANY, SIGN_IN_PAGE } from "../../constants/messages";
+import { ROUTES } from "../../constants/general";
+import type { AuthResponseDto } from "../../models/auth.types";
 import "./SignInPage.css";
 import { Typography } from "@mui/material";
 
@@ -11,7 +12,7 @@ const SignInPage: React.FC = () => {
 
     const handleSignInSuccess = (data: AuthResponseDto): void => {
         setToken(data.token);
-        navigate("/home");
+        navigate(ROUTES.home);
     };
 
     return (

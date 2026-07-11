@@ -4,6 +4,7 @@ import { useSyncExternalStore } from "react";
 import { isLoggedIn , subscribe } from "./utils/session";
 import PageLayout from "./components/PageLayout/PageLayout";
 import { ROUTES } from "./constants/general";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
     const authenticated = useSyncExternalStore(
@@ -21,6 +22,12 @@ function App() {
                 <Route
                     path={ROUTES.home}
                     element={authenticated ? <PageLayout>Home Content</PageLayout> : <Navigate to={ROUTES.signIn} replace />}
+                />
+                <Route
+                    path={ROUTES.profile}
+                    element={authenticated 
+                        ? <PageLayout><ProfilePage /></PageLayout> 
+                        : <Navigate to={ROUTES.signIn} replace />}
                 />
             </Routes>
         </BrowserRouter>

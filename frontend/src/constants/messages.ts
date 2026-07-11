@@ -37,3 +37,7 @@ export const SIDE_PANEL = {
     navigation: "Navigation",
     personalDetails: "Personal Details",
 }
+
+export const PROFILE_PAGE = {
+    title: "Personal Details"
+}

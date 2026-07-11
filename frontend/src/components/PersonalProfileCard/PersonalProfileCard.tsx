@@ -9,8 +9,6 @@ const PersonalProfileCard: React.FC<PersonalProfileCardProps> = ({ profile }: Pe
     const joinedDate = formatJoinedDate(profile.hiredDate);
     const initials = getInitials(profile.firstName, profile.lastName);
 
-    console.log(profile.hiredDate);
-
     return (
         <Card variant="outlined" className="personal-profile-card">
             <CardContent>

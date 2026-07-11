@@ -1,0 +1,11 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* max-width: 720px; */
+}
+
+.profile-page__title {
+    font-weight: 700 !important;
+    color: #0f172a;
+}

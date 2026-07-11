@@ -1,4 +1,4 @@
-import { TOKEN_KEY } from "../constants/general";
+import { TOKEN_KEY, USER_ID_KEY } from "../constants/general";
 
 export const isLoggedIn = (): boolean => getToken() !== null;
 
@@ -23,4 +23,14 @@ export const setToken = (token: string): void => {
 export const clearToken = (): void => {
     sessionStorage.removeItem(TOKEN_KEY);
     notify();
+};
+
+export const getUserId = (): string | null => sessionStorage.getItem(USER_ID_KEY);
+
+export const setUserId = (userId: string): void => {
+    sessionStorage.setItem(USER_ID_KEY, userId);
+};
+
+export const clearUserId = (): void => {
+    sessionStorage.removeItem(USER_ID_KEY);
 };

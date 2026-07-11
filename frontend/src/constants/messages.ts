@@ -32,3 +32,8 @@ export const PROFILE_CARD = {
     lastName: "Last Name",
     email: "Email"
 }
+
+export const SIDE_PANEL = {
+    navigation: "Navigation",
+    personalDetails: "Personal Details",
+}

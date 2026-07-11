@@ -43,6 +43,35 @@ namespace OnboardingAPI.Services
             return TeamMapper.ToResponseDTO(team);
         }
 
+        public async Task<IEnumerable<TeamColleagueResponseDTO>> GetLeadsAsync(Guid userId)
+        {
+            List<Guid> teamIds = await _context.TeamMembers
+                .Where(tm => tm.UserId == userId)
+                .Select(tm => tm.TeamId)
+                .ToListAsync();
+
+            List<TeamColleagueResponseDTO> leads = await (
+                from team in _context.Teams
+                join user in _context.Users
+                    on team.LeadUserId equals user.Id
+                join profile in _context.Profiles
+                    on user.Id equals profile.Id
+                where teamIds.Contains(team.Id)
+                      && team.LeadUserId != userId
+                select new TeamColleagueResponseDTO(
+                    team.Id,
+                    team.Name,
+                    user.Id,
+                    profile.FirstName,
+                    profile.LastName,
+                    user.Email,
+                    profile.Role
+                )
+            ).ToListAsync();
+
+            return leads;
+        }
+
         public async Task<TeamResponseDTO?> UpdateAsync(Guid id, UpdateTeamDTO dto)
         {
             Team? team = await _context.Teams

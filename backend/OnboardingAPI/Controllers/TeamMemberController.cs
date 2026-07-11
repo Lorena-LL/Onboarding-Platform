@@ -38,6 +38,13 @@ namespace OnboardingAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{userId}/colleagues")]
+        public async Task<IActionResult> GetColleagues(Guid userId)
+        {
+            IEnumerable<TeamColleagueResponseDTO> result = await _teamMemberService.GetColleaguesAsync(userId);
+            return Ok(result);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, UpdateTeamMemberDTO dto)
         {

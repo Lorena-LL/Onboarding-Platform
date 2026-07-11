@@ -8,3 +8,10 @@ export const getLeads = async (userId: string): Promise<TeamMemberDto[]> => {
     );
     return response.data;
 };
+
+export const getColleagues = async (userId: string): Promise<TeamMemberDto[]> => {
+    const response: AxiosResponse<TeamMemberDto[]> = await axiosInstance.get<TeamMemberDto[]>(
+        `/TeamMember/${userId}/colleagues`
+    );
+    return response.data;
+};

@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { CircularProgress, Stack, Typography } from "@mui/material";
 import PersonalProfileCard from "../../components/PersonalProfileCard/PersonalProfileCard";
 import LeadProfileCard from "../../components/LeadProfileCard/LeadProfileCard";
+import TeamProfilesCard from "../../components/TeamProfileCard/TeamProfilesCard";
 import { getProfileById } from "../../services/profileService";
-import { getLeads } from "../../services/teamService";
+import { getColleagues, getLeads } from "../../services/teamService";
 import { getUserId } from "../../utils/session";
 import { GENERAL_ERROR } from "../../constants/errors";
 import { PROFILE_PAGE } from "../../constants/messages";
@@ -14,6 +15,7 @@ import "./ProfilePage.css";
 const ProfilePage: React.FC = () => {
     const [profile, setProfile] = useState<ProfileAllInfoResponseDto | null>(null);
     const [leads, setLeads] = useState<TeamMemberDto[]>([]);
+    const [colleagues, setColleagues] = useState<TeamMemberDto[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -26,12 +28,14 @@ const ProfilePage: React.FC = () => {
                 return;
             }
             try {
-                const [profileData, leadsData] = await Promise.all([
+                const [profileData, leadsData, colleaguesData] = await Promise.all([
                     getProfileById(userId),
                     getLeads(userId),
+                    getColleagues(userId),
                 ]);
                 setProfile(profileData);
                 setLeads(leadsData);
+                setColleagues(colleaguesData);
             } catch {
                 setErrorMessage(GENERAL_ERROR.somethingWentWrong);
             } finally {
@@ -56,6 +60,7 @@ const ProfilePage: React.FC = () => {
                 <Stack spacing={3}>
                     <PersonalProfileCard profile={profile} />
                     {leads.length > 0 && <LeadProfileCard leads={leads} />}
+                    {colleagues.length > 0 && <TeamProfilesCard colleagues={colleagues} />}
                 </Stack>
             )}
         </div>

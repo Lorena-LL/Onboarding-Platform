@@ -1,4 +1,4 @@
-import { Avatar, Card, CardContent, Stack, Typography } from "@mui/material";
+import { Avatar, Card, CardContent, Divider, Stack, Typography } from "@mui/material";
 import { EmailOutlined } from "@mui/icons-material";
 import { getInitials } from "../../utils/name";
 import { LEAD_CARD } from "../../constants/messages";
@@ -19,7 +19,8 @@ const LeadProfileCard: React.FC<LeadProfileCardProps> = ({ leads }: LeadProfileC
                         const initials: string = getInitials(lead.firstName, lead.lastName);
 
                         return (
-                        <>
+                        <div key={lead.userId}>
+                            <Divider />
                             <Stack direction="row" spacing={2} className="lead-profile-card__person">
                                 <Avatar className="lead-profile-card__avatar">{initials}</Avatar>
                                 <div>
@@ -36,7 +37,7 @@ const LeadProfileCard: React.FC<LeadProfileCardProps> = ({ leads }: LeadProfileC
                                 <EmailOutlined fontSize="small" />
                                 <Typography variant="body2">{lead.email}</Typography>
                             </Stack>
-                        </>);
+                        </div>);
                     })}
                 </Stack>
             </CardContent>

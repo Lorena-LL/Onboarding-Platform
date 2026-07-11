@@ -24,7 +24,7 @@ const PersonalProfileCard: React.FC<PersonalProfileCardProps> = ({ profile }: Pe
                     </div>
                 </Stack>
 
-                <Divider className="personal-profile-card__divider" />
+                <Divider />
 
                 <Stack direction="row" spacing={6} className="personal-profile-card__body">
                     <Stack className="personal-profile-card__field">

@@ -35,7 +35,8 @@ export const PROFILE_CARD = {
 
 export const SIDE_PANEL = {
     navigation: "Navigation",
-    personalDetails: "Personal Details"
+    personalDetails: "Personal Details",
+    activeTasks: "Active Tasks"
 }
 
 export const PROFILE_PAGE = {

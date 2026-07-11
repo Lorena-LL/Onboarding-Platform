@@ -36,6 +36,13 @@ namespace OnboardingAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetAllForUser(Guid userId)
+        {
+            List<AssignedOnboardingTaskDetailedDTO> result = await _assignedTaskService.GetAllForUserAsync(userId);
+            return Ok(result);
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, UpdateAssignedOnboardingTaskDTO dto)
         {
@@ -54,13 +61,6 @@ namespace OnboardingAPI.Controllers
                 return NotFound();
 
             return NoContent();
-        }
-
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetAllForUser(Guid userId)
-        {
-            List<AssignedOnboardingTaskDetailedDTO> result = await _assignedTaskService.GetAllForUserAsync(userId);
-            return Ok(result);
         }
     }
 }

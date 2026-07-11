@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnboardingAPI.Constants;
 using OnboardingAPI.DTOs;
+using OnboardingAPI.Services;
 using OnboardingAPI.Services.Interfaces;
 
 namespace OnboardingAPI.Controllers
@@ -35,6 +36,13 @@ namespace OnboardingAPI.Controllers
             if (result == null)
                 return NotFound();
 
+            return Ok(result);
+        }
+
+        [HttpGet("{userId}/leads")]
+        public async Task<IActionResult> GetColleagues(Guid userId)
+        {
+            IEnumerable<TeamColleagueResponseDTO> result = await _teamService.GetLeadsAsync(userId);
             return Ok(result);
         }
 

@@ -29,7 +29,7 @@ namespace OnboardingAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            AssignedOnboardingTaskResponseDTO? result = await _assignedTaskService.GetByIdAsync(id);
+            AssignedOnboardingTaskDetailedDTO? result = await _assignedTaskService.GetByIdAsync(id);
             if (result == null)
                 return NotFound();
 
@@ -58,6 +58,17 @@ namespace OnboardingAPI.Controllers
                 return NotFound();
 
             return Ok(result);
+        }
+
+        [HttpPatch("{assignedTaskId}/complete/user/{userId}")]
+        public async Task<IActionResult> CompleteTask(Guid assignedTaskId, Guid userId)
+        {
+            bool completed = await _assignedTaskService.CompleteTaskAsync(assignedTaskId, userId);
+
+            if (!completed)
+                return NotFound();
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

@@ -40,14 +40,15 @@ namespace OnboardingAPI.Services
             return AssignedOnboardingTaskMapper.ToResponseDTO(assignedTask);
         }
 
-        public async Task<AssignedOnboardingTaskResponseDTO?> GetByIdAsync(Guid id)
+        public async Task<AssignedOnboardingTaskDetailedDTO?> GetByIdAsync(Guid id)
         {
             AssignedOnboardingTask? assignedTask = await _context.AssignedOnboardingTasks
+                .Include(a => a.Task)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
             if (assignedTask == null) return null;
 
-            return AssignedOnboardingTaskMapper.ToResponseDTO(assignedTask);
+            return AssignedOnboardingTaskMapper.ToDetailedDTO(assignedTask);
         }
 
         public async Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllActiveForUserAsync(Guid userId)
@@ -90,6 +91,27 @@ namespace OnboardingAPI.Services
             await _context.SaveChangesAsync();
 
             return AssignedOnboardingTaskMapper.ToResponseDTO(assignedTask);
+        }
+
+        public async Task<bool> CompleteTaskAsync(Guid assignedTaskId, Guid userId)
+        {
+            AssignedOnboardingTask? assignedTask = await _context.AssignedOnboardingTasks
+                .FirstOrDefaultAsync(a =>
+                    a.Id == assignedTaskId &&
+                    a.UserId == userId);
+
+            if (assignedTask == null)
+                return false;
+
+            if (assignedTask.Status == AssignedOnboardingTaskStatus.Completed)
+                return true;
+
+            assignedTask.Status = AssignedOnboardingTaskStatus.Completed;
+            assignedTask.CompletedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task<bool> DeleteAsync(Guid id)

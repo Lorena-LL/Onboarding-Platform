@@ -36,10 +36,17 @@ namespace OnboardingAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetAllForUser(Guid userId)
+        [HttpGet("user/{userId}/active")]
+        public async Task<IActionResult> GetAllActiveForUser(Guid userId)
         {
-            List<AssignedOnboardingTaskDetailedDTO> result = await _assignedTaskService.GetAllForUserAsync(userId);
+            List<AssignedOnboardingTaskDetailedDTO> result = await _assignedTaskService.GetAllActiveForUserAsync(userId);
+            return Ok(result);
+        }
+
+        [HttpGet("user/{userId}/completed")]
+        public async Task<IActionResult> GetAllCompletedForUser(Guid userId)
+        {
+            List<AssignedOnboardingTaskDetailedDTO> result = await _assignedTaskService.GetAllCompletedForUserAsync(userId);
             return Ok(result);
         }
 

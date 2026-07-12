@@ -3,6 +3,7 @@ using OnboardingAPI.Data;
 using OnboardingAPI.DTOs;
 using OnboardingAPI.Mappers;
 using OnboardingAPI.Models;
+using OnboardingAPI.Models.Enums;
 using OnboardingAPI.Services.Interfaces;
 
 namespace OnboardingAPI.Services
@@ -49,14 +50,28 @@ namespace OnboardingAPI.Services
             return AssignedOnboardingTaskMapper.ToResponseDTO(assignedTask);
         }
 
-        public async Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllForUserAsync(Guid userId)
+        public async Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllActiveForUserAsync(Guid userId)
         {
-            List<AssignedOnboardingTask> assignedTasks = await _context.AssignedOnboardingTasks
+            List<AssignedOnboardingTask> activeAssignedTasks = await _context.AssignedOnboardingTasks
                 .Include(a => a.Task)
-                .Where(a => a.UserId == userId)
+                .Where(a => a.UserId == userId && a.Status == AssignedOnboardingTaskStatus.Active)
+                .OrderBy(a => a.DueAt)
                 .ToListAsync();
 
-            return assignedTasks
+            return activeAssignedTasks
+                .Select(AssignedOnboardingTaskMapper.ToDetailedDTO)
+                .ToList();
+        }
+
+        public async Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllCompletedForUserAsync(Guid userId)
+        {
+            List<AssignedOnboardingTask> completedAssignedTasks = await _context.AssignedOnboardingTasks
+                .Include(a => a.Task)
+                .Where(a => a.UserId == userId && a.Status == AssignedOnboardingTaskStatus.Completed)
+                .OrderBy(a => a.DueAt)
+                .ToListAsync();
+
+            return completedAssignedTasks
                 .Select(AssignedOnboardingTaskMapper.ToDetailedDTO)
                 .ToList();
         }

@@ -6,7 +6,8 @@ namespace OnboardingAPI.Services.Interfaces
     {
         Task<AssignedOnboardingTaskResponseDTO?> CreateAsync(CreateAssignedOnboardingTaskDTO dto);
         Task<AssignedOnboardingTaskResponseDTO?> GetByIdAsync(Guid id);
-        Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllForUserAsync(Guid userId);
+        Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllActiveForUserAsync(Guid userId);
+        Task<List<AssignedOnboardingTaskDetailedDTO>> GetAllCompletedForUserAsync(Guid userId);
         Task<AssignedOnboardingTaskResponseDTO?> UpdateAsync(Guid id, UpdateAssignedOnboardingTaskDTO dto);
         Task<bool> DeleteAsync(Guid id);
     }

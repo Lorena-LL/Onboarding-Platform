@@ -16,11 +16,21 @@ const TeamProfilesCard: React.FC<TeamProfilesCardProps> = ({ colleagues }) => {
             <Stack direction="row" spacing={2} className="team-profiles-card__member">
                 <Avatar className="team-profiles-card__avatar">{initials}</Avatar>
                 <div>
-                    <Typography variant="body1" className="team-profiles-card__name">
-                        {colleague.firstName} {colleague.lastName}
-                    </Typography>
-                    <Typography variant="body2" className="team-profiles-card__role">
-                        {colleague.role}
+                    <div className="team-profiles-card__member-details">
+                        <Typography variant="body1" className="team-profiles-card__name">
+                            {colleague.firstName} {colleague.lastName}
+                        </Typography>
+                        <Typography variant="body2" className="team-profiles-card__role">
+                             · {colleague.role}
+                        </Typography>
+                    </div>
+                    <Typography 
+                        component="a"
+                        href={`mailto:${colleague.email}`}
+                        variant="body2"
+                        className="team-profiles-card__email"
+                    >
+                            {colleague.email}
                     </Typography>
                 </div>
             </Stack>

@@ -35,7 +35,14 @@ const LeadProfileCard: React.FC<LeadProfileCardProps> = ({ leads }: LeadProfileC
 
                             <Stack direction="row" spacing={1} className="lead-profile-card__email">
                                 <EmailOutlined fontSize="small" />
-                                <Typography variant="body2">{lead.email}</Typography>
+                                <Typography 
+                                    variant="body2"
+                                    component="a"
+                                    href={`mailto:${lead.email}`}
+                                    className="lead-profile-card__email-text"
+                                >
+                                    {lead.email}
+                                </Typography>
                             </Stack>
                         </div>);
                     })}

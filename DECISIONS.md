@@ -24,7 +24,15 @@ This is a simplified structure of what each table may contain. I focused on show
 
 # Why did you choose these libraries/frameworks?
 
-I chose MaterialUi as it has many styled components that are ready to use. I chose Axios as I have worked with it before.
+**Frontend:** 
+- React and Typescript because I was familiar with them and allowed me to focus on the solution
+- MaterialUi as it has many styled components that are ready to use
+- Axios as I have worked with it before.
+
+**Backend:** 
+- ASP.NET because i have worked with it and offers many useful libraries
+-  EF Core to create quickly the tables in the database
+- SQLite as it allowed me to share a pre-populated small database for immediate running
 
 # If you had more time, what would you build differently?
 

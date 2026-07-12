@@ -1,0 +1,25 @@
+.active-tasks-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 32px;
+}
+
+.active-tasks-page__header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.active-tasks-page__title {
+    font-weight: 700 !important;
+    color: #0f172a;
+}
+
+.active-tasks-page__spinner {
+    margin-top: 24px;
+}
+
+.active-tasks-page__list {
+    margin-top: 24px;
+}

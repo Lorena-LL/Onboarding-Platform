@@ -1,40 +1,40 @@
 .side-panel {
-  width: 240px;
-  flex-shrink: 0;
-  padding: 24px 12px;
-  background-color: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  min-height: calc(100vh - 64px);
+    width: 240px;
+    flex-shrink: 0;
+    padding: 0 26px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    min-height: calc(100vh - 64px);
 }
 
 .side-panel__title {
-  display: block;
-  padding: 0 12px 12px;
-  color: #94a3b8;
-  font-weight: 700;
+    display: block;
+    padding: 50px 12px 12px;
+    color: #94a3b8;
+    font-weight: 700;
 }
 
 .side-panel__list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .side-panel__item {
-  border-radius: 8px !important;
-  color: #5A6070 !important;
+    border-radius: 8px !important;
+    color: #5A6070 !important;
 }
 
 .side-panel__item.Mui-selected {
-  background-color: #eef2f7 !important;
-  color: #1e3a5f !important;
+    background-color: #eef2f7 !important;
+    color: #1e3a5f !important;
 }
 
 .side-panel__item.Mui-selected .side-panel__icon {
-  color: #1e3a5f;
+    color: #1e3a5f;
 }
 
 .side-panel__icon {
-  min-width: 36px !important;
-  color: #5A6070 !important;
+    min-width: 36px !important;
+    color: #5A6070 !important;
 }

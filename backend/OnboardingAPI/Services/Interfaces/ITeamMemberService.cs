@@ -1,4 +1,4 @@
-﻿using OnboardingAPI.DTOs;
+﻿using OnboardingAPI.DTOs.TeamMember;
 
 namespace OnboardingAPI.Services.Interfaces
 {

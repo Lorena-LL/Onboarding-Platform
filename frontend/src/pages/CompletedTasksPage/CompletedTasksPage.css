@@ -1,0 +1,25 @@
+.completed-tasks-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 32px;
+}
+
+.completed-tasks-page_header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.completed-tasks-page__title {
+    font-weight: 700 !important;
+    color: #0f172a;
+}
+
+.completed-tasks-page__spinner {
+    margin-top: 24px;
+}
+
+.completed-tasks-page__list {
+    margin-top: 24px;
+}

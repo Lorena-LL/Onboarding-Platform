@@ -4,7 +4,9 @@ export const TOKEN_KEY = "meridian_token";
 export const USER_ID_KEY = "meridian_user_id";
 
 export const ROUTES = {
-    signIn: "/",
-    home: "/home",
-    profile: "/profile"
+    main: "/",
+    profile: "/profile",
+    activeTasks: "/active-tasks",
+    completedTasks: "/completed-tasks",
+    taskDetails: "/task-details"
 };

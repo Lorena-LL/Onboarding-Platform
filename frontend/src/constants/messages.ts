@@ -35,7 +35,9 @@ export const PROFILE_CARD = {
 
 export const SIDE_PANEL = {
     navigation: "Navigation",
-    personalDetails: "Personal Details"
+    personalDetails: "Personal Details",
+    activeTasks: "Active Tasks",
+    completedTasks: "Completed Tasks"
 }
 
 export const PROFILE_PAGE = {
@@ -49,4 +51,27 @@ export const LEAD_CARD = {
 
 export const TEAM_CARD = {
     title: "Team"
+}
+
+export const TASK_CARD = {
+    due: "Due",
+    completed: "Completed",
+    viewTask: "View Task"
+}
+
+export const ACTIVE_TASKS_PAGE = {
+    title: "Active Tasks"
+}
+
+export const COMPLETED_TASKS_PAGE = {
+    title: "Completed Tasks"
+}
+
+export const TASK_DETAILS_PAGE = {
+    backToActiveTasks: "Back to Active Tasks",
+    backToCompletedTasks: "Back to Completed Tasks",
+    due: "Due",
+    markComplete: "Mark as Complete",
+    markingComplete: "Marking as complete...",
+    back: "Back"
 }

@@ -5,9 +5,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using OnboardingAPI.Data;
-using OnboardingAPI.DTOs;
 using OnboardingAPI.Models;
 using OnboardingAPI.Services.Interfaces;
+using OnboardingAPI.DTOs.Auth;
 
 namespace OnboardingAPI.Services
 {

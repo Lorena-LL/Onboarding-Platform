@@ -6,6 +6,7 @@ import PageLayout from "./components/PageLayout/PageLayout";
 import { ROUTES } from "./constants/general";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ActiveTasksPage from "./pages/ActiveTasksPage/ActiveTasksPage";
+import CompletedTasksPage from "./pages/CompletedTasksPage/CompletedTasksPage";
 
 function App() {
     const authenticated = useSyncExternalStore(
@@ -34,6 +35,12 @@ function App() {
                     path={ROUTES.activeTasks}
                     element={authenticated 
                         ? <PageLayout><ActiveTasksPage /></PageLayout>
+                        : <Navigate to={ROUTES.signIn} replace />}
+                />
+                <Route
+                    path={ROUTES.completedTasks}
+                    element={authenticated 
+                        ? <PageLayout><CompletedTasksPage /></PageLayout>
                         : <Navigate to={ROUTES.signIn} replace />}
                 />
             </Routes>

@@ -7,11 +7,12 @@ import { TASK_CARD } from "../../constants/messages";
 import type { TaskCardProps } from "./TaskCard.types";
 import { getCategoryStyle, type CategoryStyle } from "./taskCategoryStyles";
 import "./TaskCard.css";
+import { CheckCircleOutlined } from "@mui/icons-material";
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }: TaskCardProps) => {
     const navigate = useNavigate();
     const categoryStyle: CategoryStyle = getCategoryStyle(task.taskCategory);
-    const dueDate: string = formatJoinedDate(task.dueAt);
+    const isCompleted: boolean = task.status === "Completed";
 
     const handleViewTask = (): void => {
         navigate(ROUTES.taskDetails, { state: { taskId: task.id } });
@@ -29,12 +30,21 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }: TaskCardProps) => {
                         <Typography variant="subtitle1" className="task-card__name">
                             {task.taskName}
                         </Typography>
-                        <Stack direction="row" spacing={0.5} className="task-card__due">
-                            <ScheduleOutlinedIcon fontSize="small" />
-                            <Typography variant="body2">
-                                {TASK_CARD.due} {dueDate}
-                            </Typography>
-                        </Stack>
+                        {isCompleted ? (
+                            <Stack direction="row" spacing={0.5} className="task-card__completed">
+                                <CheckCircleOutlined fontSize="small" />
+                                <Typography variant="body2">
+                                    {TASK_CARD.completed} {formatJoinedDate(task.completedAt!)}
+                                </Typography>
+                            </Stack>
+                        ) : (
+                            <Stack direction="row" spacing={0.5} className="task-card__due">
+                                <ScheduleOutlinedIcon fontSize="small" />
+                                <Typography variant="body2">
+                                    {TASK_CARD.due} {formatJoinedDate(task.dueAt)}
+                                </Typography>
+                            </Stack>
+                        )}
                     </Stack>
                     <Chip
                         size="small"

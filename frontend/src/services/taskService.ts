@@ -8,3 +8,10 @@ export const getActiveAssignedTasks = async (userId: string): Promise<AssignedOn
     );
     return response.data;
 };
+
+export const getCompletedAssignedTasks = async (userId: string): Promise<AssignedOnboardingTaskDto[]> => {
+    const response: AxiosResponse<AssignedOnboardingTaskDto[]> = await axiosInstance.get<AssignedOnboardingTaskDto[]>(
+        `/AssignedOnboardingTask/user/${userId}/completed`
+    );
+    return response.data;
+};

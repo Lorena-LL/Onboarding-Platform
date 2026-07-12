@@ -1,8 +1,10 @@
-import { WorkOutlineOutlined } from "@mui/icons-material";
-import { ChatBubbleOutlineOutlined } from "@mui/icons-material";
-import { BuildOutlined } from "@mui/icons-material";
-import { CardGiftcardOutlined } from "@mui/icons-material";
-import { CategoryOutlined } from "@mui/icons-material";
+import { 
+    WorkOutlineOutlined, 
+    ChatBubbleOutlineOutlined, 
+    BuildOutlined, 
+    CardGiftcardOutlined, 
+    CategoryOutlined 
+} from "@mui/icons-material";
 
 export interface CategoryStyle {
     color: string;

@@ -1,4 +1,4 @@
-import { PersonOutlined, AssignmentOutlined } from "@mui/icons-material";
+import { PersonOutlined, AssignmentOutlined, CheckCircleOutlined } from "@mui/icons-material";
 import { SIDE_PANEL } from "../../constants/messages";
 import { ROUTES } from "../../constants/general";
 
@@ -11,4 +11,5 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
     { label: SIDE_PANEL.personalDetails, path: ROUTES.profile, icon: <PersonOutlined fontSize="small" /> },
     { label: SIDE_PANEL.activeTasks, path: ROUTES.activeTasks, icon: <AssignmentOutlined fontSize="small" /> },
+    { label: SIDE_PANEL.completedTasks, path: ROUTES.completedTasks, icon: <CheckCircleOutlined fontSize="small" /> },
 ];

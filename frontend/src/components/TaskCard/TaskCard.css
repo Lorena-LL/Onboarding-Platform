@@ -17,6 +17,10 @@
     color: #0f172a;
 }
 
+.task-card__completed {
+  color: #16a34a;
+}
+
 .task-card__due {
     color: #64748b;
 }

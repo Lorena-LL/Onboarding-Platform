@@ -1,8 +1,9 @@
 ﻿using OnboardingAPI.Models.Enums;
 
-namespace OnboardingAPI.DTOs
+namespace OnboardingAPI.DTOs.OnboardingTask
 {
-    public record UpdateOnboardingTaskDTO(
+    public record OnboardingTaskResponseDTO(
+        Guid Id,
         string Name,
         OnboardingTaskCategory Category,
         string Description

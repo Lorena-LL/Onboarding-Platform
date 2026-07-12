@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnboardingAPI.Data;
-using OnboardingAPI.DTOs;
+using OnboardingAPI.DTOs.Team;
+using OnboardingAPI.DTOs.TeamMember;
 using OnboardingAPI.Mappers;
 using OnboardingAPI.Models;
 using OnboardingAPI.Services.Interfaces;

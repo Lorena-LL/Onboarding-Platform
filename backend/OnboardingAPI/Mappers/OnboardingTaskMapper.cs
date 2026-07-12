@@ -1,4 +1,4 @@
-﻿using OnboardingAPI.DTOs;
+﻿using OnboardingAPI.DTOs.OnboardingTask;
 using OnboardingAPI.Models;
 
 namespace OnboardingAPI.Mappers

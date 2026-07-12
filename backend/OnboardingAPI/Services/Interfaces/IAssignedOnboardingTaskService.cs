@@ -1,4 +1,4 @@
-﻿using OnboardingAPI.DTOs;
+﻿using OnboardingAPI.DTOs.AssignedOnboardingTask;
 
 namespace OnboardingAPI.Services.Interfaces
 {

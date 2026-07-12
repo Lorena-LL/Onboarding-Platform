@@ -1,6 +1,6 @@
 ﻿using OnboardingAPI.Models.Enums;
 
-namespace OnboardingAPI.DTOs
+namespace OnboardingAPI.DTOs.TeamMember
 {
     public record TeamColleagueResponseDTO(
         Guid TeamId,

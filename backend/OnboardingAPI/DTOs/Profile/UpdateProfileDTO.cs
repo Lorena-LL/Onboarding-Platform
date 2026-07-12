@@ -1,6 +1,6 @@
 ﻿using OnboardingAPI.Models.Enums;
 
-namespace OnboardingAPI.DTOs
+namespace OnboardingAPI.DTOs.Profile
 {
     public record UpdateProfileDTO(
         string FirstName,

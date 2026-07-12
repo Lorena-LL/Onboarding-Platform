@@ -1,7 +1,7 @@
-﻿namespace OnboardingAPI.DTOs
+﻿namespace OnboardingAPI.DTOs.Auth
 {
     public record LoginDTO(
-        string Email = "", 
+        string Email = "",
         string Password = ""
     );
 }

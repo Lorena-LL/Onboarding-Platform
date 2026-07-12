@@ -1,4 +1,4 @@
-﻿using OnboardingAPI.DTOs;
+﻿using OnboardingAPI.DTOs.AssignedOnboardingTask;
 using OnboardingAPI.Models;
 using OnboardingAPI.Models.Enums;
 

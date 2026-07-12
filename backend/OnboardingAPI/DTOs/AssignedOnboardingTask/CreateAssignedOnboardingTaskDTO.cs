@@ -1,4 +1,4 @@
-﻿namespace OnboardingAPI.DTOs
+﻿namespace OnboardingAPI.DTOs.AssignedOnboardingTask
 {
     public record CreateAssignedOnboardingTaskDTO(
         Guid TaskId,

@@ -1,6 +1,6 @@
 ﻿using OnboardingAPI.Models.Enums;
 
-namespace OnboardingAPI.DTOs
+namespace OnboardingAPI.DTOs.AssignedOnboardingTask
 {
     public record AssignedOnboardingTaskDetailedDTO(
         Guid Id,

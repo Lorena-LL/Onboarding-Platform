@@ -13,7 +13,7 @@ const SignInPage: React.FC = () => {
     const handleSignInSuccess = (data: AuthResponseDto): void => {
         setToken(data.token);
         setUserId(data.id);
-        navigate(ROUTES.home);
+        navigate(ROUTES.main);
     };
 
     return (

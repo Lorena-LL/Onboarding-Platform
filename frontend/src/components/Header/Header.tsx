@@ -2,12 +2,13 @@ import { Button, Typography } from "@mui/material";
 import { PersonOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { COMPANY, HEADER } from "../../constants/messages";
+import { ROUTES } from "../../constants/general";
 import "./Header.css";
 
 const Header: React.FC = () => {
     return (
         <header className="header">
-            <Link to="/home" className="header__brand">
+            <Link to={ROUTES.profile} className="header__brand">
                 <Typography variant="body2" className="header__company">
                     {COMPANY.name}
                 </Typography>

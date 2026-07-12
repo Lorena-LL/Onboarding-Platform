@@ -18,6 +18,12 @@
     padding-top: 12px;
 }
 
+.team-profiles-card__member-details {
+    display: flex;
+    flex-direction: row;
+        align-items: center;
+}
+
 .team-profiles-card__avatar {
     width: 50px !important;
     height: 50px !important;
@@ -33,4 +39,9 @@
 
 .team-profiles-card__role {
     color: #64748b;
+    padding-left: 6px;
+}
+
+.team-profiles-card__email{
+    color: #334155;
 }

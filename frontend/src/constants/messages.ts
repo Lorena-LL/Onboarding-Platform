@@ -51,3 +51,8 @@ export const LEAD_CARD = {
 export const TEAM_CARD = {
     title: "Team"
 }
+
+export const TASK_CARD = {
+    due: "Due",
+    viewTask: "View Task"
+}

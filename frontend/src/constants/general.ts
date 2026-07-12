@@ -8,4 +8,5 @@ export const ROUTES = {
     home: "/home",
     profile: "/profile",
     activeTasks: "/active-tasks",
+    taskDetails: "/task-details"
 };

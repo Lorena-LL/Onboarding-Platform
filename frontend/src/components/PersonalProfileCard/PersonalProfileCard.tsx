@@ -29,18 +29,6 @@ const PersonalProfileCard: React.FC<PersonalProfileCardProps> = ({ profile }: Pe
                 <Stack direction="row" spacing={6} className="personal-profile-card__body">
                     <Stack className="personal-profile-card__field">
                         <Typography variant="button" className="personal-profile-card__label">
-                            {PROFILE_CARD.firstName}
-                        </Typography>
-                        <Typography variant="body1">{profile.firstName}</Typography>
-                    </Stack>
-                    <Stack className="personal-profile-card__field">
-                        <Typography variant="button" className="personal-profile-card__label">
-                            {PROFILE_CARD.lastName}
-                        </Typography>
-                        <Typography variant="body1">{profile.lastName}</Typography>
-                    </Stack>
-                    <Stack className="personal-profile-card__field">
-                        <Typography variant="button" className="personal-profile-card__label">
                             {PROFILE_CARD.email}
                         </Typography>
                         <Typography variant="body1">{profile.email}</Typography>

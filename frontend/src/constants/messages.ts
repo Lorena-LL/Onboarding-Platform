@@ -23,7 +23,7 @@ export const SIGN_IN_PAGE = {
 }
 
 export const HEADER = {
-    profile: "My Profile"
+    signOut: "Sign Out"
 }
 
 export const PROFILE_CARD = {
@@ -50,7 +50,7 @@ export const LEAD_CARD = {
 }
 
 export const TEAM_CARD = {
-    title: "Team"
+    title: "Teams"
 }
 
 export const TASK_CARD = {

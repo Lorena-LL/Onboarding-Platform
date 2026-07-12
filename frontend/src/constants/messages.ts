@@ -66,3 +66,12 @@ export const ACTIVE_TASKS_PAGE = {
 export const COMPLETED_TASKS_PAGE = {
     title: "Completed Tasks"
 }
+
+export const TASK_DETAILS_PAGE = {
+    backToActiveTasks: "Back to Active Tasks",
+    backToCompletedTasks: "Back to Completed Tasks",
+    due: "Due",
+    markComplete: "Mark as Complete",
+    markingComplete: "Marking as complete...",
+    back: "Back"
+}

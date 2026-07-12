@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, Chip, Stack, Typography } from "@mui/material";
 import ScheduleOutlinedIcon from "@mui/icons-material/ScheduleOutlined";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { formatJoinedDate } from "../../utils/date";
 import { ROUTES } from "../../constants/general";
 import { TASK_CARD } from "../../constants/messages";
@@ -11,13 +11,14 @@ import { CheckCircleOutlined } from "@mui/icons-material";
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }: TaskCardProps) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const categoryStyle: CategoryStyle = getCategoryStyle(task.taskCategory);
     const isCompleted: boolean = task.status === "Completed";
 
     const handleViewTask = (): void => {
-        navigate(ROUTES.taskDetails, { state: { taskId: task.id } });
+        navigate(ROUTES.taskDetails, { state: { taskId: task.id, from: location.pathname } });
     };
-
+    
     return (
         <Card
             variant="outlined"

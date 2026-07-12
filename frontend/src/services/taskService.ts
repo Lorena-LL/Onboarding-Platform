@@ -15,3 +15,14 @@ export const getCompletedAssignedTasks = async (userId: string): Promise<Assigne
     );
     return response.data;
 };
+
+export const getTaskById = async (id: string): Promise<AssignedOnboardingTaskDto> => {
+    const response: AxiosResponse<AssignedOnboardingTaskDto> = await axiosInstance.get<AssignedOnboardingTaskDto>(
+        `/AssignedOnboardingTask/${id}`
+    );
+    return response.data;
+};
+
+export const completeTask = async (assignedTaskId: string, userId: string): Promise<void> => {
+    await axiosInstance.patch(`/AssignedOnboardingTask/${assignedTaskId}/complete/user/${userId}`);
+};

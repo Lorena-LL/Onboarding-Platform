@@ -41,7 +41,7 @@ namespace OnboardingAPI.Controllers
         }
 
         [HttpGet("{userId}/leads")]
-        public async Task<IActionResult> GetColleagues(Guid userId)
+        public async Task<IActionResult> GetLeads(Guid userId)
         {
             IEnumerable<TeamColleagueResponseDTO> result = await _teamService.GetLeadsAsync(userId);
             return Ok(result);

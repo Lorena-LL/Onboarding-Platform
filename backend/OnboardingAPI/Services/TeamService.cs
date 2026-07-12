@@ -59,6 +59,7 @@ namespace OnboardingAPI.Services
                     on user.Id equals profile.Id
                 where teamIds.Contains(team.Id)
                       && team.LeadUserId != userId
+                orderby team.Name
                 select new TeamColleagueResponseDTO(
                     team.Id,
                     team.Name,

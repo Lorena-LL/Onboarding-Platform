@@ -34,3 +34,9 @@ export const setUserId = (userId: string): void => {
 export const clearUserId = (): void => {
     sessionStorage.removeItem(USER_ID_KEY);
 };
+
+export const signOut = (): void => {
+    sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(USER_ID_KEY);
+    notify();
+};

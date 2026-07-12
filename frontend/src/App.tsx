@@ -5,6 +5,7 @@ import { isLoggedIn , subscribe } from "./utils/session";
 import PageLayout from "./components/PageLayout/PageLayout";
 import { ROUTES } from "./constants/general";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import ActiveTasksPage from "./pages/ActiveTasksPage/ActiveTasksPage";
 
 function App() {
     const authenticated = useSyncExternalStore(
@@ -27,6 +28,12 @@ function App() {
                     path={ROUTES.profile}
                     element={authenticated 
                         ? <PageLayout><ProfilePage /></PageLayout> 
+                        : <Navigate to={ROUTES.signIn} replace />}
+                />
+                <Route
+                    path={ROUTES.activeTasks}
+                    element={authenticated 
+                        ? <PageLayout><ActiveTasksPage /></PageLayout>
                         : <Navigate to={ROUTES.signIn} replace />}
                 />
             </Routes>

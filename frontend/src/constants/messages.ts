@@ -56,3 +56,7 @@ export const TASK_CARD = {
     due: "Due",
     viewTask: "View Task"
 }
+
+export const ACTIVE_TASKS_PAGE = {
+    title: "Active Tasks"
+}
